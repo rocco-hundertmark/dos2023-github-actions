@@ -1,0 +1,18 @@
+name: Needs Example
+on:
+  push:
+    branches: [main]
+jobs:
+  jobSource:
+    runs-on: ubuntu-latest
+    steps:
+      - id: step-one
+        run: echo "varInStep=hello world" >> $GITHUB_OUTPUT
+    outputs: # Needs Example
+      greeting: ${{ steps.step-one.outputs.varInStep }}
+  jobTarget:
+    needs: jobSource
+    runs-on: ubuntu-latest
+    steps:
+      - id: step-two
+        run: echo ${{ needs.jobSource.outputs.greeting }}
