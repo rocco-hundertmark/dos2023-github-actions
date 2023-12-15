@@ -14,6 +14,14 @@ jobs:
         with:
           dotnet-version: 6.0.x
       - name: Restore dependencies
-        run: dotnet restore
+        run: |
+          dotnet restore DemoApp/Client/src/Client.csproj
+          dotnet restore DemoApp/Server/src/Server.csproj
       - name: Build
-        run: dotnet build --configuration Debug --no-restore
+        run: |
+          dotnet build DemoApp/Client/src/Client.csproj --configuration Release
+          dotnet build DemoApp/Server/src/Server.csproj --configuration Release
+      - name: Publish
+        run: |
+          dotnet publish DemoApp/Client/src/Client.csproj --configuration Release --output DemoApp/Client/dist
+          dotnet publish DemoApp/Server/src/Server.csproj --configuration Release --output DemoApp/Server/dist
