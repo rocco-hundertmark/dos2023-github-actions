@@ -12,7 +12,7 @@ jobs:
       greeting: ${{ steps.step-one.outputs.varInStep }}
   jobTarget:
     needs: jobSource
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - id: step-two
         run: echo ${{ needs.jobSource.outputs.greeting }}
