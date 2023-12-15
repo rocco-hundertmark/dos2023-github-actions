@@ -1,0 +1,10 @@
+name: cron
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo event
+        run: cat $GITHUB_EVENT_PATH
