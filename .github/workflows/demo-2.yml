@@ -6,7 +6,7 @@ on:
         description: "Who to greet"
         required: true
         type: string
-        default: "DevOpenSpace 2023"
+        default: "rOCCO"
       laune:
         description: "Wie ist die Laune"
         required: true
@@ -21,4 +21,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo Hallo DevOpenSpace 2023
+        run: echo "Hello ich bin ${{ inputs.name }}! Meine Laune ist ${{ inputs.laune }}"
