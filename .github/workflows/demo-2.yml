@@ -1,0 +1,24 @@
+name: demo-1
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Who to greet"
+        required: true
+        type: string
+        default: "DevOpenSpace 2023"
+      laune:
+        description: "Wie ist die Laune"
+        required: true
+        type: choice
+        options:
+          - "gut"
+          - "schlecht"
+          - "egal"
+        default: "gut"
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo Hallo DevOpenSpace 2023
