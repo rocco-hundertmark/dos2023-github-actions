@@ -19,9 +19,9 @@ jobs:
           dotnet restore DemoApp/Server/src/Server.csproj
       - name: Build
         run: |
-          dotnet build DemoApp/Client/src/Client.csproj --configuration Release
-          dotnet build DemoApp/Server/src/Server.csproj --configuration Release
+          dotnet build DemoApp/Client/src/Client.csproj
+          dotnet build DemoApp/Server/src/Server.csproj
       - name: Publish
         run: |
-          dotnet publish DemoApp/Client/src/Client.csproj --configuration Release --output DemoApp/Client/dist
-          dotnet publish DemoApp/Server/src/Server.csproj --configuration Release --output DemoApp/Server/dist
+          dotnet publish DemoApp/Client/src/Client.csproj
+          dotnet publish DemoApp/Server/src/Server.csproj
